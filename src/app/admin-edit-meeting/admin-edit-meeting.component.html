@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Admin Edit Meeting</title>
+</head>
+<body>
+     <h1>Edit Meeting</h1>
+    <button type="submit" class="btn btn-primary btn-center btn-router" routerLink="/admin-view-meeting">View Meeting</button>
+    <br>
+    <button type="submit" class="btn btn-secondary btn-center btn-router" routerLink="/admin">Return to Admin Dashboard</button>
+    <div class="center-container">
+        <div class="form-group">
+            <label for="meetingId"><b>Meeting's ID:</b></label>
+            <input type="text" class="form-control" id="meetingId" aria-describedby="emailHelp" [(ngModel)]="meetingId" placeholder="Enter the Meeting's Topic" [disabled]="true" required>
+        </div>
+        <div class="form-group">
+            <label for="topic"><b>Topic:</b></label>
+            <input type="text" class="form-control" id="topic" aria-describedby="emailHelp" [(ngModel)]="topic" placeholder="Enter the Meeting's Topic" required>
+            <div id="topicError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="parties"><b>Parties Involved</b></label>
+            <input type="text" class="form-control" id="parties" [value]="getSelectedClientNames()">
+            <div id="partiesError" class="error-message"></div>
+            <table class="table table-hover table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Client Name</th>
+                    <th>Username</th>
+                    <th>Add/Remove Clients</th>
+                </tr>
+                <tr *ngFor="let client of clients">
+                    <td>{{client.clientId}}</td>
+                    <td>{{client.clientName}}</td>
+                    <td>{{client.username}}</td>
+                    <td><button type="button" class="btn btn-primary btn-center" (click)="addToMeeting(client)">Add/Remove</button></td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-group">
+            <label for="startdate"><b>Meeting's Start Date:</b></label>
+            <input type="date" class="form-control" id="startdate" aria-describedby="emailHelp" [(ngModel)]="startdate" placeholder="Select the Meeting's start date" required>
+            <div id="startdateError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="starttime"><b>Meeting's Start Time:</b></label>
+            <input type="time" class="form-control" id="starttime" aria-describedby="emailHelp" [(ngModel)]="starttime" placeholder="Select the Meeting's start time" required>
+            <div id="starttimeError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="enddate"><b>Meeting's End Date:</b></label>
+            <input type="date" class="form-control" id="enddate" aria-describedby="emailHelp" [(ngModel)]="enddate" placeholder="Select the Meeting's end date" required>
+            <div id="enddateError" class="error-message"></div>
+            <div id="enddateBeforestartdate" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="endtime"><b>Meeting's End Time:</b></label>
+            <input type="time" class="form-control" id="endtime" aria-describedby="emailHelp" [(ngModel)]="endtime" placeholder="Select the Meeting's end time" required>
+            <div id="endtimeError" class="error-message"></div>
+            <div id="endtimeBeforestarttime" class="error-message"></div>
+        </div>
+        <button type="submit" class="btn btn-warning btn-center" (click)="updateMeeting()">UPDATE MEETING</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <br><br>
+    <div class="center-container">
+        <div class="card-group">
+            <div class="card">
+            <img src="../../assets/images/user.png" class="card-img-top" alt="Clients" width="250" height="200">
+            <div class="card-body">
+                <h5 class="card-title">Client</h5>
+                <p class="card-text">Everyone has to start from somewhere. So why not start from creating a client?</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated eons ago</small>
+                <p><b>Create Clients</b></p>
+                <button class="btn btn-primary btn-center" id="createClient" (click)="createClient()">Create a Client</button>
+                <br>
+                <p><b>View All Clients in Organization</b></p>
+                <button class="btn btn-secondary btn-center" id="viewClient" (click)="viewClient()">View Clients</button>
+            </div>
+            </div>
+            <div class="card">
+            <img src="../../assets/images/meeting.jfif" class="card-img-top" alt="Meeting" width="20" height="200">
+            <div class="card-body">
+                <h5 class="card-title">Meeting</h5>
+                <p class="card-text">Who doesnt like social interation? So why not start a meeting now?</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">Last updated eons ago</small>
+                <p><b>Create a Meeting</b></p>
+                <button class="btn btn-primary btn-center" id="createMeeting" (click)="createMeeting()">Create Meeting</button>
+                <br>
+                <p><b>View All Meeting</b></p>
+                <button class="btn btn-secondary btn-center" id="viewMeeting" (click)="viewMeeting()">View Meeting</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

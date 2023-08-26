@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: AngularProject.AddClientTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.906 s <<< FAILURE! - in AngularProject.AddClientTest
+Admin updates client information and client logs in with updated credentials(Update Client Information)  Time elapsed: 0.014 s  <<< ERROR!
+io.cucumber.junit.UndefinedStepException: 
+The step 'the [update]success message should be displayed' is undefined.
+You can implement this step using the snippet(s) below:
+
+@Then("the [update]success message should be displayed")
+public void the_update_success_message_should_be_displayed() {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+

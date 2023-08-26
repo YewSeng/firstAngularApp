@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>View Clients</title>
+</head>
+<body>
+    <h1>Need to add more clients?</h1>
+    <button type="submit" class="btn btn-primary btn-center btn-router" routerLink="/admin-create-clients">Add Client</button>
+    <br>
+    <br>
+    <button type="submit" class="btn btn-secondary btn-center btn-router" routerLink="/admin">Return to Admin Dashboard</button>
+    <table class="table table-hover table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Client Name</th>
+            <th scope="col">Client Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Postal Code</th> 
+            <th scope="col">Username</th> 
+            <th scope="col">Edit Client</th> 
+            <th scope="col">Delete Client</th> 
+        </tr>
+        <tr *ngFor="let client of clients">
+            <td>{{ client.clientId }}</td>
+            <td>{{ client.clientName }}</td>
+            <td>{{ client.email }}</td>
+            <td>{{ client.address }}</td>
+            <td>{{ client.postalCode }}</td>
+            <td>{{ client.username }}</td>
+            <td><button type="submit" class="btn btn-warning btn-center" [routerLink]="'/admin-edit-client/' + client.clientId">Edit Client</button></td>
+            <td><button type="submit" class="btn btn-danger btn-center" (click)="deleteProduct(client.clientId)">Delete Client</button></td>
+        </tr>
+      </table>
+</body>
+</html>

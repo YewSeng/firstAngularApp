@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Client</title>
+</head>
+<body>
+    <h1>Edit Client</h1>
+    <button type="submit" class="btn btn-primary btn-center btn-router" routerLink="/admin-view-clients">View Clients</button>
+    <br>
+    <button type="submit" class="btn btn-secondary btn-center btn-router" routerLink="/admin">Return to Admin Dashboard</button>
+    <div class="center-container">
+        <div class="form-group">
+            <label for="clientId"><b>Client's ID:</b></label>
+            <input type="text" class="form-control" id="clientId" aria-describedby="emailHelp" [(ngModel)]="clientId" [disabled]="true">
+        </div>
+        <div class="form-group">
+            <label for="fName"><b>Client's Name:</b></label>
+            <input type="text" class="form-control" id="fName" aria-describedby="emailHelp" [(ngModel)]="clientName" placeholder="Enter the Company's Name" required>
+            <div id="nameError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="email"><b>Client's Email:</b></label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" [(ngModel)]="email" placeholder="Enter Email" required>
+            <div id="emailError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="address"><b>Client's Address:</b></label>
+            <input type="text" class="form-control" id="address" aria-describedby="emailHelp" [(ngModel)]="address" placeholder="Enter the Company's Address" required>
+            <div id="addressError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="postalCode"><b>Client's PostalCode:</b></label>
+            <input type="number" class="form-control" id="postalCode" aria-describedby="emailHelp" [(ngModel)]="postalCode" placeholder="Enter the Company's Postal Code" required>
+            <div id="postalCodeError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="user"><b>Username:</b></label>
+            <input type="text" class="form-control" id="user" aria-describedby="emailHelp" [(ngModel)]="username" placeholder="Enter Your Username" required>
+            <div id="usernameError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="password"><b>Password:</b></label>
+            <input #passwordInput type="password" class="form-control" id="password" [(ngModel)]="password" placeholder="Enter Your Password" required>
+            <div id="passwordError" class="error-message"></div>
+        </div>
+        <div class="form-group">
+            <label for="showPassword">
+            <input type="checkbox" id="showPassword" (click)="togglePasswordVisibility(passwordInput)">Show Password
+            </label>
+        </div>         
+        <button type="submit" class="btn btn-warning btn-center" (click)="editClient()">UPDATE CLIENT</button>
+    </div>
+</body>
+</html>

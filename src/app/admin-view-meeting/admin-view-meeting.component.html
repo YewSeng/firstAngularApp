@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Admin View Meeting</title>
+</head>
+<body>
+    <h1>Need to add more meetings?</h1>
+    <div class="text-center">
+        <button type="submit" class="btn btn-primary btn-router" routerLink="/admin-create-meeting">Add Meeting</button>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-secondary btn-router" routerLink="/admin">Return to Admin Dashboard</button>
+        <br>
+        <br>
+        <table>
+            <tr>
+                <td><label for="clientName"><b>Enter Client's Name</b></label></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="clientName" id="clientName" [(ngModel)]="enteredCode" (ngModelChange)="fetchMeetings()"></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <table class="table table-hover table-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Meeting Topic</th>
+            <th scope="col">Parties Involved</th>
+            <th scope="col">Meeting Start Date</th>
+            <th scope="col">Meeting Start Time</th> 
+            <th scope="col">Meeting End Date</th> 
+            <th scope="col">Meeting End Time</th> 
+            <th scope="col">Edit Meeting</th> 
+            <th scope="col">Delete Meeting</th> 
+        </tr>
+        <tr *ngFor="let meeting of meetings">
+            <td>{{meeting.meetingId}}</td>
+            <td>{{ meeting.topic }}</td>
+            <td>{{ meeting.parties }}</td>
+            <td>{{ meeting.startdate | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ meeting.starttime }}</td>
+            <td>{{ meeting.enddate | date: 'dd/MM/yyyy' }}</td>
+            <td>{{ meeting.endtime }}</td>
+            <td><button type="submit" class="btn btn-warning btn-center" [routerLink]="'/admin-edit-meeting/' + meeting.meetingId">Edit Meeting</button></td>
+            <td><button type="submit" class="btn btn-danger btn-center" (click)="deleteMeeting(meeting.meetingId)">Delete Meeting</button></td>
+        </tr>
+      </table>
+</body>
+</html>
