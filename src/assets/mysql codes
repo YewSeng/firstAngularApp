@@ -1,0 +1,49 @@
+-- Create Database --
+SHOW DATABASES;
+CREATE DATABASE UI;
+USE UI;
+-- Create Table Contact
+CREATE TABLE IF NOT EXISTS contact (
+	responseId BIGINT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    enquiries VARCHAR(255) NOT NULL
+);
+-- Create Table Admin
+CREATE TABLE IF NOT EXISTS admin (
+	adminId BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50) NOT NULL,
+    username VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+-- Create Table client
+CREATE TABLE  IF NOT EXISTS Client (
+	clientId BIGINT PRIMARY KEY AUTO_INCREMENT, 
+	clientName VARCHAR(50), 
+    email VARCHAR(50),
+	address VARCHAR(100),  
+	postalCode BIGINT,
+	username VARCHAR(20),
+	password VARCHAR(255)
+);
+-- Create Table User
+CREATE TABLE IF NOT EXISTS user(
+    userId BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(50),
+    email VARCHAR(50),
+    username VARCHAR(20),
+    password VARCHAR(255),
+    clientId BIGINT,
+    CONSTRAINT FK_Client FOREIGN KEY (clientId) 
+    REFERENCES client(clientId)
+);
+-- CREATE TABLE Meeting
+CREATE TABLE IF NOT EXISTS Meeting (
+	meetingId BIGINT PRIMARY KEY AUTO_INCREMENT, 
+    topic VARCHAR(50),
+	parties VARCHAR(255),
+    startdate date,
+    starttime time,
+    enddate date,
+    endtime time
+);
